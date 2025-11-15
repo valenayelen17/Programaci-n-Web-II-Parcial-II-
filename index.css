@@ -1,11 +1,25 @@
+main{
+    background-color: #121212;
+}
+
+
+#cont_Art{
+    padding-top: 40px;
+}
 .artista {
     width: 400px;
     height: 400px;
 }
-
+#link_Artist{
+    color: #1abc54;
+    text-decoration: none;
+    transition: 3s;
+    
+}
 h2 {
+    color: #1abc54;
     text-align: center;
-    margin: 20px 0px 20px 0px;
+    padding: 20px 0px 20px 0px;
 }
 
 #carrusel {
@@ -15,10 +29,11 @@ h2 {
 img {
     border-radius: 200px;
     margin-bottom: 10px;
+    transition: transform 1.2s;
 }
 
 nav {
-    background-color: green;
+    background-color: #1abc54;
 }
 
 .link, .btn {
@@ -34,4 +49,19 @@ nav {
     margin-right: 20px;
 
 }
-
+#boton{
+    background-color: #1abc54;
+    transition: 3;
+}
+#boton:hover{
+    background-color: gray;
+   
+}
+#link_Artist h3:hover{
+    color: gray;
+   
+}
+#link_Artist  img:hover{
+    transform: scale(1.05);
+    
+}
