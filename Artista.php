@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = "db";
+$db = "musync";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
