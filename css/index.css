@@ -1,3 +1,6 @@
+html{
+    background-color: #121212;
+}
 main{
     background-color: #121212;
 }
@@ -11,8 +14,9 @@ main{
     padding-top: 40px;
 }
 .artista {
-    width: 400px;
-    height: 400px;
+    width: 275px;
+    height: 275px;
+    flex-direction: column;
 }
 #link_Artist{
     color: #1abc54;
@@ -30,7 +34,7 @@ h2 {
     text-align: center;
 }
 
-img {
+#img_art {
     border-radius: 200px;
     margin-bottom: 10px;
     transition: transform 1.2s;
@@ -46,6 +50,7 @@ nav {
 
 #caja-boton-next, #caja-boton-prev{
     width: 100px;
+    margin-top: 5%;
 }
 
 #link_Artist h3:hover{
@@ -56,3 +61,5 @@ nav {
     transform: scale(1.05);
     
 }
+
+

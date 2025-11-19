@@ -42,7 +42,7 @@ $artista = $result->fetch_assoc();
         <nav class="navbar navbar-expand-lg bg-green">
             <div class="container-fluid">
                 <a class="link navbar-brand" href="#">
-                    <h1>Musync</h1>
+                    <h1>Musynf</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent">

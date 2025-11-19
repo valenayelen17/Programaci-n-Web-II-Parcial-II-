@@ -18,7 +18,7 @@ if ($conn->connect_error) {
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Musync</title>
+    <title>Musynf</title>
     <link rel="icon" href="./Img/Spotify_icon.svg.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/index.css">
@@ -29,7 +29,7 @@ if ($conn->connect_error) {
         <nav class="navbar navbar-expand-lg bg-green">
             <div class="container-fluid">
                 <a class="link navbar-brand" href="#">
-                    <h1>Musync</h1>
+                    <h1>Musynf</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent">
@@ -49,9 +49,9 @@ if ($conn->connect_error) {
     </header>
 
     <main>
-        <div id="carouselExample" class="carousel slide">
-            <h2>Artistas populares</h2>
-            <div class="carousel-inner">
+        <div id="carouselExample" class="carousel slide">   
+        <h2>Artistas populares</h2>
+        <div class="carousel-inner">
 
                 <?php
                 $sql = "SELECT id, Imagen, Nombre_Artistico FROM artista";
@@ -66,7 +66,7 @@ if ($conn->connect_error) {
                     for ($i = 0; $i < $num_slides; $i++) {
                         $active = ($i == 0) ? "active" : "";
                         echo '<div class="carousel-item ' . $active . '">';
-                        echo '<div class="d-flex justify-content-center flex-wrap">';
+                        echo '<div id="artista" class="d-flex justify-content-center flex-wrap">';
 
                         $inicio = $i * $por_slide;
                         $fin = min($inicio + $por_slide, $total);
@@ -80,7 +80,7 @@ if ($conn->connect_error) {
                             
                                 <div  id="cont_Art" class="contenedor_artista text-center mx-3">
                                    <a  id="link_Artist" href="./Artista.php?id=<?php echo $id; ?>">
-                                     <img src="<?php echo $img; ?>" class="artista d-inline" alt="imagen artista">
+                                     <img id="img_art" src="<?php echo $img; ?>" class="artista d-inline" alt="imagen artista">
                                     <h3><?php echo htmlspecialchars($nombre); ?></h3>
                                </a>
  
@@ -97,7 +97,7 @@ if ($conn->connect_error) {
                 ?>
 
             </div>
-
+        
             <button class="carousel-control-prev" id="caja-boton-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon " aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
@@ -105,7 +105,75 @@ if ($conn->connect_error) {
             <button id="caja-boton-next" class="carousel-control-next " type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                 <span class="carousel-control-next-icon " aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
+            </button> 
+              
+
+        </div>
+
+
+
+<!-- -------------------------------------NOTICIAS----------------------------------------- -->
+        
+        <div id="carouselNoti" class="carousel slide">   
+        <h2>Ultimas noticias</h2>
+        <div class="carousel-inner">
+
+                <?php
+                $sql = "SELECT id, Nombre_Artistico, Noticia, Imagen_Not FROM artista";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    $artistas = $result->fetch_all(MYSQLI_ASSOC);
+                    $total = count($artistas);
+                    $por_slide = 1;
+                    $num_slides = ceil($total / $por_slide);
+
+                    for ($i = 0; $i < $num_slides; $i++) {
+                        $active = ($i == 0) ? "active" : "";
+                        echo '<div class="carousel-item ' . $active . '">';
+                        echo '<div id="artista" class="d-flex justify-content-center flex-wrap">';
+
+                        $inicio = $i * $por_slide;
+                        $fin = min($inicio + $por_slide, $total);
+
+                        for ($j = $inicio; $j < $fin; $j++) {
+                            $id = $artistas[$j]["id"];
+                            $img = $artistas[$j]["Imagen_Not"];
+                            $nombre = $artistas[$j]["Nombre_Artistico"];
+                            $noticia = $artistas[$j] ["Noticia"];
+                            ?>
+
+                            
+                                <div  id="cont_Art" class="contenedor_artista text-center mx-3">
+                                   <a  id="link_Artist" href="./Artista.php?id=<?php echo $id; ?>">
+                                     <img src="<?php echo $img; ?>" class="artista d-inline" alt="imagen artista">
+                                    <h3><?php echo htmlspecialchars($nombre); ?></h3>
+                                    <p><?php echo htmlspecialchars($noticia); ?></p>
+                               </a>
+ 
+                            </div>
+                            
+                            <?php
+                        }
+
+                        echo '</div></div>';
+                    }
+                } else {
+                    echo "<p>No hay artistas registrados.</p>";
+                }
+                ?>
+
+            </div>
+        
+            <button class="carousel-control-prev" id="caja-boton-prev" type="button" data-bs-target="#carouselNoti" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
             </button>
+            <button id="caja-boton-next" class="carousel-control-next " type="button" data-bs-target="#carouselNoti" data-bs-slide="next">
+                <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button> 
+              
 
         </div>
     </main>
