@@ -1,29 +1,49 @@
-html{
-    background-color: #121212;
-}
-main{
+html {
     background-color: #121212;
 }
 
-#logo{
+main {
+    background-color: #121212;
+}
+
+#logo {
     width: 50px;
     height: 50px;
     margin-right: 20px;
 }
-#cont_Art{
-    padding-top: 40px;
+
+#menu-nav {
+    width: 80%;
 }
+
+#cont_Art {
+    padding-top: 40px;
+
+}
+
 .artista {
     width: 275px;
     height: 275px;
     flex-direction: column;
 }
-#link_Artist{
+
+.link_Artist {
     color: #1abc54;
     text-decoration: none;
     transition: 3s;
-    
 }
+
+#art_not{
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#art_not p {
+    font-size: 30px;
+}
+
 h2 {
     color: #1abc54;
     text-align: center;
@@ -44,22 +64,23 @@ nav {
     background-color: #1abc54;
 }
 
-.link, .btn {
+.link,
+.btn {
     color: white;
 }
 
-#caja-boton-next, #caja-boton-prev{
+#caja-boton-next,
+#caja-boton-prev {
     width: 100px;
     margin-top: 5%;
 }
 
-#link_Artist h3:hover{
+#link_Artist h3:hover {
     color: gray;
-   
+
 }
-#link_Artist  img:hover{
+
+#link_Artist img:hover {
     transform: scale(1.05);
-    
+
 }
-
-

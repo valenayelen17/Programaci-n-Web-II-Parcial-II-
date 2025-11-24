@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = "musync";
+$db = "musynf";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 <html lang="es">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Musynf</title>
@@ -27,8 +27,8 @@ if ($conn->connect_error) {
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-green">
-            <div class="container-fluid">
-                <a class="link navbar-brand" href="#">
+            <div id="menu-nav" class="container-fluid">
+                <a class="link navbar-brand" href="index.php">
                     <h1>Musynf</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -38,20 +38,20 @@ if ($conn->connect_error) {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="link nav-link" aria-current="page" href="#">Home</a>
+                            <a class="link nav-link" aria-current="page" href="index.php">Home</a>
                         </li>
                     </ul>
                     <img id="logo" class="d-flex" role="search" src="./Img/spotify_black.png" alt="">
-                    
+
                 </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <div id="carouselExample" class="carousel slide">   
-        <h2>Artistas populares</h2>
-        <div class="carousel-inner">
+        <div id="carouselExample" class="carousel slide">
+            <h2>Artistas populares</h2>
+            <div class="carousel-inner">
 
                 <?php
                 $sql = "SELECT id, Imagen, Nombre_Artistico FROM artista";
@@ -77,15 +77,15 @@ if ($conn->connect_error) {
                             $nombre = $artistas[$j]["Nombre_Artistico"];
                             ?>
 
-                            
-                                <div  id="cont_Art" class="contenedor_artista text-center mx-3">
-                                   <a  id="link_Artist" href="./Artista.php?id=<?php echo $id; ?>">
-                                     <img id="img_art" src="<?php echo $img; ?>" class="artista d-inline" alt="imagen artista">
+
+                            <div id="cont_Art" class="contenedor_artista text-center mx-3">
+                                <a class="link_Artist" href="./Artista.php?id=<?php echo $id; ?>">
+                                    <img id="img_art" src="<?php echo $img; ?>" class="artista d-inline" alt="imagen artista">
                                     <h3><?php echo htmlspecialchars($nombre); ?></h3>
-                               </a>
- 
+                                </a>
+
                             </div>
-                            
+
                             <?php
                         }
 
@@ -97,26 +97,28 @@ if ($conn->connect_error) {
                 ?>
 
             </div>
-        
-            <button class="carousel-control-prev" id="caja-boton-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+
+            <button class="carousel-control-prev" id="caja-boton-prev" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon " aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
             </button>
-            <button id="caja-boton-next" class="carousel-control-next " type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <button id="caja-boton-next" class="carousel-control-next " type="button" data-bs-target="#carouselExample"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon " aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
-            </button> 
-              
+            </button>
+
 
         </div>
 
 
 
-<!-- -------------------------------------NOTICIAS----------------------------------------- -->
-        
-        <div id="carouselNoti" class="carousel slide">   
-        <h2>Ultimas noticias</h2>
-        <div class="carousel-inner">
+        <!-- -------------------------------------NOTICIAS----------------------------------------- -->
+
+        <div id="carouselNoti" class="carousel slide">
+            <h2>Ultimas noticias</h2>
+            <div class="carousel-inner">
 
                 <?php
                 $sql = "SELECT id, Nombre_Artistico, Noticia, Imagen_Not FROM artista";
@@ -140,19 +142,19 @@ if ($conn->connect_error) {
                             $id = $artistas[$j]["id"];
                             $img = $artistas[$j]["Imagen_Not"];
                             $nombre = $artistas[$j]["Nombre_Artistico"];
-                            $noticia = $artistas[$j] ["Noticia"];
+                            $noticia = $artistas[$j]["Noticia"];
                             ?>
 
-                            
-                                <div  id="cont_Art" class="contenedor_artista text-center mx-3">
-                                   <a  id="link_Artist" href="./Artista.php?id=<?php echo $id; ?>">
-                                     <img src="<?php echo $img; ?>" class="artista d-inline" alt="imagen artista">
-                                    <h3><?php echo htmlspecialchars($nombre); ?></h3>
+
+                            <div id="cont_Art" class="contenedor_artista text-center mx-3">
+                                <a class="link_Artist" id="art_not" href="./Artista.php?id=<?php echo $id; ?>">
+                                    <img src="<?php echo $img; ?>" class="artista d-inline" alt="imagen artista">
+                                    <!-- <h3><?php //echo htmlspecialchars($nombre); ?></h3> -->
                                     <p><?php echo htmlspecialchars($noticia); ?></p>
-                               </a>
- 
+                                </a>
+
                             </div>
-                            
+
                             <?php
                         }
 
@@ -164,16 +166,18 @@ if ($conn->connect_error) {
                 ?>
 
             </div>
-        
-            <button class="carousel-control-prev" id="caja-boton-prev" type="button" data-bs-target="#carouselNoti" data-bs-slide="prev">
+
+            <button class="carousel-control-prev" id="caja-boton-prev" type="button" data-bs-target="#carouselNoti"
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon " aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
             </button>
-            <button id="caja-boton-next" class="carousel-control-next " type="button" data-bs-target="#carouselNoti" data-bs-slide="next">
+            <button id="caja-boton-next" class="carousel-control-next " type="button" data-bs-target="#carouselNoti"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon " aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
-            </button> 
-              
+            </button>
+
 
         </div>
     </main>

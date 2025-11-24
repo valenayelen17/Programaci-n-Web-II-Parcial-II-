@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = "musync";
+$db = "musynf";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
@@ -51,7 +51,7 @@ $artista = $result->fetch_assoc();
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="link nav-link" aria-current="page" href="#">Home</a>
+                            <a class="link nav-link" aria-current="page" href="index.php">Home</a>
                         </li>
                     </ul>
                     <img id="logo" class="d-flex" role="search" src="./Img/spotify_black.png" alt="">
