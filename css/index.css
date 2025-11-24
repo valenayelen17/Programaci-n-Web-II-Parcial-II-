@@ -18,7 +18,7 @@ main {
 
 #cont_Art {
     padding-top: 40px;
-
+    padding-bottom: 40px;
 }
 
 .artista {
@@ -75,12 +75,17 @@ nav {
     margin-top: 5%;
 }
 
-#link_Artist h3:hover {
+.link_Artist h3:hover {
     color: gray;
 
 }
 
-#link_Artist img:hover {
+.link_Artist img:hover {
     transform: scale(1.05);
 
+}
+
+footer {
+    background-color: #1abc54;
+    padding: 25px 0px 25px 0px;
 }

@@ -1,0 +1,21 @@
+html {
+    background-color: #121212;
+}
+
+main {
+    background-color: #121212;
+}
+
+nav {
+    background-color: #1abc54;
+}
+
+#menu-nav {
+    width: 80%;
+}
+
+footer {
+    background-color: #1abc54;
+    padding: 25px 0px 25px 0px;
+}
+
