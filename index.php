@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $host = "localhost";
 $user = "root";
 $pass = "";
@@ -21,7 +23,7 @@ if ($conn->connect_error) {
     <title>Musynf</title>
     <link rel="icon" href="./Img/Spotify_icon.svg.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/index.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -38,9 +40,45 @@ if ($conn->connect_error) {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="link nav-link" aria-current="page" href="index.php">Home</a>
-                        </li>
-                    </ul>
+                        <a class="link nav-link" href="index.php">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="link nav-link" href="Artista.php">Artistas</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="link nav-link" href="Contacto.php">Contacto</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="link nav-link" href="crear_usuario.php">Crear usuario</a>
+                    </li>
+
+                     <?php if (!empty($_SESSION['usuario'])): ?>
+    <li class="nav-item">
+        <a class="nav-link text-danger" href="logout.php" title="Cerrar sesión">
+            <!-- Ícono Logout -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10 12a.5.5 0 0 1-.5-.5V9H4.5A1.5 1.5 0 0 1 3 7.5v-5A1.5 1.5 0 0 1 4.5 1h5A1.5 1.5 0 0 1 11 2.5V6h1V2.5A2.5 2.5 0 0 0 9.5 0h-5A2.5 2.5 0 0 0 2 2.5v5A2.5 2.5 0 0 0 4.5 10H9v1.5a.5.5 0 0 1-.5.5z"/>
+                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L14.293 7.5H6.5a.5.5 0 0 0 0 1h7.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+        </a>
+    </li>
+<?php else: ?>
+    <li class="nav-item">
+        <a class="nav-link text-success" href="login.php" title="Iniciar sesión">
+            <!-- Ícono Login -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6 12a.5.5 0 0 1-.5-.5V9H1.5A1.5 1.5 0 0 1 0 7.5v-5A1.5 1.5 0 0 1 1.5 1h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v5a.5.5 0 0 0 .5.5H5.5v-2.5a.5.5 0 0 1 1 0v3A.5.5 0 0 1 6 12z"/>
+                <path fill-rule="evenodd" d="M10.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.293 7.5H2.5a.5.5 0 0 0 0 1h6.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+        </a>
+    </li>
+<?php endif; ?>
+
+
+                </ul>
                     <img id="logo" class="d-flex" role="search" src="./Img/spotify_black.png" alt="">
                 </div>
             </div>
