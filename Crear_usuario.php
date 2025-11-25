@@ -13,12 +13,18 @@ if ($conn->connect_error) {
 $mensaje = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = $_POST['usuario'];
-    $clave = password_hash($_POST['clave'], PASSWORD_BCRYPT);
+    
+    $nombre = $_POST['Nombre'];
+    $apellido = $_POST['Apellido'];
+    $usuario = $_POST['Nombre_Usuario'];
+    $clave = $_POST['Contrasenia'];
+    $correo = $_POST['Correo'];
 
-    $sql = "INSERT INTO usuarios (usuario, clave) VALUES (?, ?)";
+    $sql = "INSERT INTO usuario (Nombre, Apellido, Nombre_Usuario, Contrasenia, Correo)
+            VALUES (?, ?, ?, ?, ?)";
+
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $usuario, $clave);
+    $stmt->bind_param("sssss", $nombre, $apellido, $usuario, $clave, $correo);
 
     if ($stmt->execute()) {
         $mensaje = "Usuario creado correctamente.";
@@ -36,7 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
 <div class="container mt-5">
     <h2>Crear nuevo usuario</h2>
 
@@ -45,14 +50,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <form method="POST">
+
         <div class="mb-3">
-            <label class="form-label">Usuario:</label>
-            <input type="text" name="usuario" class="form-control" required>
+            <label>Nombre:</label>
+            <input type="text" name="Nombre" class="form-control" required>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Contraseña:</label>
-            <input type="password" name="clave" class="form-control" required>
+            <label>Apellido:</label>
+            <input type="text" name="Apellido" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Usuario:</label>
+            <input type="text" name="Nombre_Usuario" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Correo:</label>
+            <input type="email" name="Correo" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Contraseña:</label>
+            <input type="password" name="Contrasenia" class="form-control" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Crear usuario</button>

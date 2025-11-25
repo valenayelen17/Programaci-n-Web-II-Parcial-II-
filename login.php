@@ -9,9 +9,9 @@
 
 <h2>Iniciar sesión</h2>
 
-<?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
+<?php if (isset($_GET['error'])) echo "<p style='color:red;'>".$_GET['error']."</p>"; ?>
 
-<form method="POST">
+<form method="POST" action="index.php">
     <label>Usuario:</label>
     <input type="text" name="Nombre_Usuario" required>
 

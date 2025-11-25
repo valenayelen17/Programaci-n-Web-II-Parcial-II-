@@ -1,4 +1,8 @@
+html{
+    background-color: #121212;
+}
 main{
+    
     background-color: #121212;
 }
 
@@ -43,3 +47,13 @@ nav {
 #card{
     margin: 20px 40px 20px 40px;
 }
+footer {
+    background-color: #1abc54;
+    padding: 25px 0px 25px 0px;
+}
+
+
+ footer p{
+    color: white;
+    font-size:18px;
+ }

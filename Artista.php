@@ -80,5 +80,16 @@ $artista = $result->fetch_assoc();
     </div>
     </div>
 </main>
+<?php
+$footer = $conn->query("SELECT * FROM footer_info LIMIT 1")->fetch_assoc();
+?>
+
+<footer >
+    <div class="container text-center">
+        <p><?php echo $footer['Texto']; ?></p>
+        <p>Contacto: <?php echo $footer['Email']; ?></p>
+    </div>
+</footer>
+
 </body>
 </html>
