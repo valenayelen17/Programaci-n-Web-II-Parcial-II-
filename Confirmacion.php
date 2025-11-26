@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Musynf</title>
+    <title>Confirmacion- Musynf</title>
 
     <link rel="icon" href="./Img/Spotify_icon.svg.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -68,32 +68,8 @@ $conf = $conn->query("SELECT * FROM header LIMIT 1")->fetch_assoc();
 
     <main class="main-center">
         <div class="contact-container">
-            <h2>Formulario de Contacto</h2>
+            <h2>Formulario enviado con exito!!</h2>
 
-            <form action= "Confirmacion.php" method="POST">
-
-                <label class="form-label">Nombre completo</label>
-                <input type="text" class="form-control" name="nombre" required>
-
-                <label class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" name="email" required>
-
-                <label class="form-label">Edad</label>
-                <input type="number" class="form-control" name="edad" min="1" max="120" required>
-
-                <label class="form-label">Asunto</label>
-                <select class="form-select" name="asunto" required>
-                    <option value="">Seleccione...</option>
-                    <option value="consulta">Consulta</option>
-                    <option value="sugerencia">Sugerencia</option>
-                    <option value="reclamo">Reclamo</option>
-                </select>
-
-                <label class="form-label">Mensaje</label>
-                <textarea class="form-control" name="mensaje" rows="4" required></textarea>
-
-                <button class="btn-submit mt-3">Enviar</button>
-            </form>
         </div>
     </main>
 
