@@ -28,26 +28,26 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `artista` (
-  `Id` int(11) NOT NULL,
-  `Inicio_Actividad` date DEFAULT NULL,
-  `Fecha_Nacimiento` date DEFAULT NULL,
-  `Nombre` varchar(45) NOT NULL,
-  `Apellido` varchar(45) DEFAULT NULL,
-  `Nombre_Artistico` varchar(45) DEFAULT NULL,
-  `Nombre_Artistico_Anterior` varchar(45) DEFAULT NULL,
-  `Nacionalidad` varchar(45) DEFAULT NULL,
-  `Fin_Actividad` date DEFAULT NULL,
-  `Imagen` varchar(50) DEFAULT NULL,
-  `Descripcion` varchar(500) DEFAULT NULL,
-  `Noticia` varchar(500) DEFAULT NULL,
-  `Imagen_Not` varchar(50) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `inicio_Actividad` date DEFAULT NULL,
+  `fecha_Nacimiento` date DEFAULT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `apellido` varchar(45) DEFAULT NULL,
+  `nombre_artistico` varchar(45) DEFAULT NULL,
+  `nombre_artistico_anterior` varchar(45) DEFAULT NULL,
+  `nacionalidad` varchar(45) DEFAULT NULL,
+  `fin_actividad` date DEFAULT NULL,
+  `imagen` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(500) DEFAULT NULL,
+  `noticia` varchar(500) DEFAULT NULL,
+  `imagen_not` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `artista`
 --
 
-INSERT INTO `artista` (`Id`, `Inicio_Actividad`, `Fecha_Nacimiento`, `Nombre`, `Apellido`, `Nombre_Artistico`, `Nombre_Artistico_Anterior`, `Nacionalidad`, `Fin_Actividad`, `Imagen`, `Descripcion`, `Noticia`, `Imagen_Not`) VALUES
+INSERT INTO `artista` (`id`, `inicio_actividad`, `fecha_nacimiento`, `nombre`, `apellido`, `nombre_artistico`, `nombre_artistico_anterior`, `nacionalidad`, `fin_actividad`, `imagen`, `descripcion`, `noticia`, `imagen_not`) VALUES
 (1, '2015-03-25', '1997-10-10', 'Valentin Oliva', NULL, 'Wos', NULL, 'Argentino', NULL, './Img/Fotos_WOS.pdf.jpg', 'Wos es un rapero, cantante y freestyler argentino reconocido por su potencia vocal, letras introspectivas y compromiso social. Surgió en las batallas de freestyle, ganó la Red Bull Internacional y luego consolidó una exitosa carrera musical con discos que mezclan rap, rock y música alternativa.', 'Wos anunció nuevas fechas para su gira internacional, sumando presentaciones en España y México tras el éxito de su último álbum.', './Img/wos_noti.jpg'),
 (2, '2000-01-25', '1998-05-08', 'Alejo Nahuel Acosta Migliarini', NULL, 'Ysy A', NULL, 'Argentino', NULL, './Img/ysy_foto.jpg', 'Ysy A es un rapero y compositor argentino, fundador del icónico colectivo Modo Diablo. Con un estilo innovador y energético, mezcla trap, rap y electrónica. Es conocido por su creatividad, sus conceptos artísticos y por lanzar música cada 11/11 como parte de su identidad artística.', 'Ysy A confirmó que el próximo 11/11 lanzará un nuevo proyecto conceptual, manteniendo su tradición anual de estrenos en esa fecha.', './Img/ysy_noti.jpg'),
 (3, NULL, NULL, 'Mauro', NULL, 'Duki', NULL, 'Argentino', NULL, './Img/duko.jpeg', 'Duki es uno de los artistas más importantes del trap argentino y latino. Su estilo distintivo, flow agresivo y capacidad para crear hits lo llevaron a convertirse en un referente global. Formó parte del movimiento que impulsó el trap en Argentina y sigue liderando la escena.', 'Duki anunció un show histórico en un estadio de Argentina y agotó las entradas en pocas horas, sumando nuevas fechas.', './Img/duki_noti.png'),
@@ -69,17 +69,17 @@ INSERT INTO `artista` (`Id`, `Inicio_Actividad`, `Fecha_Nacimiento`, `Nombre`, `
 
 
 CREATE TABLE `header` (
-  `Id` int(11) NOT NULL,
-  `Nombre_Sitio` varchar(100) NOT NULL,
-  `Logo` varchar(200) DEFAULT NULL,
-  `Color_Primario` varchar(20) DEFAULT '#1abc54'
+  `id` int(11) NOT NULL,
+  `nombre_sitio` varchar(100) NOT NULL,
+  `logo` varchar(200) DEFAULT NULL,
+  `color_primario` varchar(20) DEFAULT '#1abc54'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `configuracion_sitio`
 --
 
-INSERT INTO `header` (`Id`, `Nombre_Sitio`, `Logo`, `Color_Primario`) VALUES
+INSERT INTO `header` (`id`, `nombre_sitio`, `logo`, `color_primario`) VALUES
 (1, 'Musynf', './Img/spotify_black.png', '#1abc54');
 
 -- --------------------------------------------------------
@@ -89,16 +89,16 @@ INSERT INTO `header` (`Id`, `Nombre_Sitio`, `Logo`, `Color_Primario`) VALUES
 --
 
 CREATE TABLE `footer_info` (
-  `Id` int(11) NOT NULL,
-  `Texto` varchar(300) DEFAULT NULL,
-  `Email` varchar(150) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `texto` varchar(300) DEFAULT NULL,
+  `email` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `footer_info`
 --
 
-INSERT INTO `footer_info` (`Id`, `Texto`, `Email`) VALUES
+INSERT INTO `footer_info` (`id`, `texto`, `email`) VALUES
 (1, 'Musynf © 2025 - Proyecto académico de música urbana.', 'contacto@musynf.com');
 
 -- --------------------------------------------------------
@@ -108,21 +108,51 @@ INSERT INTO `footer_info` (`Id`, `Texto`, `Email`) VALUES
 --
 
 CREATE TABLE `usuario` (
-  `Id` int(11) NOT NULL,
-  `Fecha_Alta` date DEFAULT NULL,
-  `Fecha_Nacimiento` date DEFAULT NULL,
-  `Nombre` varchar(45) NOT NULL,
-  `Apellido` varchar(45) DEFAULT NULL,
-  `Nombre_Usuario` varchar(45) NOT NULL,
-  `Contrasenia` varchar(128) NOT NULL,
-  `Correo` varchar(100) NOT NULL
+  `id` int(11) NOT NULL,
+  `fecha_alta` date DEFAULT NULL,
+  `fecha_aacimiento` date DEFAULT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `apellido` varchar(45) DEFAULT NULL,
+  `nombre_usuario` varchar(45) NOT NULL,
+  `contrasenia` varchar(128) NOT NULL,
+  `correo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+
+CREATE TABLE roles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL
+);
+
+INSERT INTO roles (nombre) VALUES ('admin'), ('usuario');
+
+ALTER TABLE usuario
+ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY,
+ADD COLUMN rol_id INT DEFAULT 2,
+ADD FOREIGN KEY (rol_id) REFERENCES roles(id);
+
+--
+-- Estructura de tabla para la tabla `lista`
+--
+
+CREATE TABLE lista (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(300),
+    imagen VARCHAR(200),
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`Id`, `Fecha_Alta`, `Fecha_Nacimiento`, `Nombre`, `Apellido`, `Nombre_Usuario`, `Contrasenia`, `Correo`) VALUES
+INSERT INTO `usuario` (`id`, `fecha_alta`, `fecha_Nacimiento`, `nombre`, `apellido`, `nombre_usuario`, `contrasenia`, `correo`) VALUES
 (1, '2025-10-05', '2002-10-27', 'Tomas', 'Fernandez', 'tomifer', 'futbol123', 'tomi@gmail.com'),
 (2, '2025-07-15', '1993-07-27', 'Joaquin', 'Dalmau', 'joadalmau', 'trap2025', 'joaco@gmail.com');
 
